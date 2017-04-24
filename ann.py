@@ -34,13 +34,9 @@ for x in range(len(input)):
     for y in range(len(input[0])):
         input_normal[x][y] = input[x][y]/mx
 
-#n = NeuralNet(len(input[0]), 102, 102, len(target[0]))
+n = NeuralNet(len(input[0]), 102, 102, len(target[0]))
 
-#n.train(input_normal, target)
-
-network = MLPClassifier((93, 93), 'logistic', 'sgd', max_iter=10000, learning_rate_init=0.1)
-
-network.fit(input_normal, target)
+n.train(input_normal, target)
 
 predicted = []
 

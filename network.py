@@ -30,7 +30,7 @@ class NeuralNet(object):
 		self.Y = np.array(targets)
 
 		#Initialize weights and bias
-		self.weights_h1 = 2*np.random.uniform(-1, 1, (self.numip, self.numh)) - 1
+		self.weights_h = 2*np.random.uniform(-1, 1, (self.numip, self.numh)) - 1
 		self.weights_op = 2*np.random.uniform(-1, 1, (self.numh, self.numop)) - 1
 
 		for j in range(epochs):
@@ -58,10 +58,5 @@ class NeuralNet(object):
 
 		    self.weights_op += temp.T.dot(out_delta) * self.lrate
 		    self.weights_h += self.X.T.dot(hidden_delta) * self.lrate
-
-		hidden_wtext = np.asarray(self.weights_h)
-		output_wtext = np.asarray(self.weights_op)
-		np.savetxt('hidden_weights.csv', hidden_wtext, delimiter=',')
-		np.savetxt('output_weights.csv', output_wtext, delimiter=',')
 
 
